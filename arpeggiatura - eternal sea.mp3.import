@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsdg8iett1dep"
+path="res://.godot/imported/arpeggiatura - eternal sea.mp3-6db3fd776cdbaa94974a114ae3bdf897.mp3str"
+
+[deps]
+
+source_file="res://arpeggiatura - eternal sea.mp3"
+dest_files=["res://.godot/imported/arpeggiatura - eternal sea.mp3-6db3fd776cdbaa94974a114ae3bdf897.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

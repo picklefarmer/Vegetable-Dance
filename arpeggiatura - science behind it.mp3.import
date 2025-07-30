@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpmrtu48knoaf"
+path="res://.godot/imported/arpeggiatura - science behind it.mp3-1a78bc0cf7a959321f75e7f637ad94b7.mp3str"
+
+[deps]
+
+source_file="res://arpeggiatura - science behind it.mp3"
+dest_files=["res://.godot/imported/arpeggiatura - science behind it.mp3-1a78bc0cf7a959321f75e7f637ad94b7.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
