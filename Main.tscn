@@ -29,7 +29,6 @@ radiance_size = 4
 background_mode = 2
 background_energy_multiplier = 0.87
 sky = SubResource("Sky_glv2v")
-sky_rotation = Vector3(-1.07861, 0, 0)
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_glv2v"]

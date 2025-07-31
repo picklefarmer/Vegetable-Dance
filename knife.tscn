@@ -299,8 +299,14 @@ settings/0/exclude_collision_count = 0
 [node name="Camera3D" type="Camera3D" parent="Empty"]
 transform = Transform3D(0.923127, -0.161415, 0.348973, -0.118821, 0.743426, 0.658179, -0.365676, -0.649048, 0.667097, 17.8511, 10.5687, 6.57811)
 
+[node name="Label" type="Label" parent="Empty/Camera3D"]
+offset_right = 41.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 72
+text = "0"
+
 [node name="legs" type="Node3D" parent="Empty"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.26405, -0.527983, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.70329, -0.527983, 0)
 
 [node name="Armature" type="Node3D" parent="Empty/legs"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)

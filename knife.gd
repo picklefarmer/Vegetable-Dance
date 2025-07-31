@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+		
 	if Input.is_action_pressed("rotateL"):
 		
 			
@@ -71,8 +71,9 @@ func throw(veggie):
 	start.y = position.y + 3
 	thrown.position = start
 	
+	var score = int($Empty/Camera3D/Label.text) + 5
 	
-	
+	$Empty/Camera3D/Label.text = "Score: "+str(score)
 	get_tree().root.add_child(thrown)
 	thrown.scale = Vector3.ONE * randf_range(1,0)
 	#print(forward*50, "thrown")
