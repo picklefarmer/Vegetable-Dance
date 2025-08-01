@@ -4,7 +4,8 @@ extends CharacterBody3D
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 14.5
 @export var ROTATE_SPEED = 25
-@export var typed_key_value: Dictionary[int, String] = { 1: "first value", 2: "second value", 3: "etc" }
+@export var Countdown = 100
+var isPlaying = true
 @export var vegetable = {
 	"tomato": preload("res://slice.tscn"),
 	"broccoli": preload("res://greenSlice.tscn")
@@ -71,10 +72,29 @@ func throw(veggie):
 	start.y = position.y + 3
 	thrown.position = start
 	
-	var score = int($Empty/Camera3D/Label.text) + 5
+	$SliceSound.play()
 	
-	$Empty/Camera3D/Label.text = "Score: "+str(score)
 	get_tree().root.add_child(thrown)
 	thrown.scale = Vector3.ONE * randf_range(1,0)
 	#print(forward*50, "thrown")
 	thrown.apply_impulse(forward * 20.0)
+
+	if isPlaying:
+		var score = int($Empty/Camera3D/Label.text) + 5
+		$Empty/Camera3D/Label.text = "Score: "+str(score)
+		if score >= 150:
+			$"Empty/Camera3D/You Win".visible = true
+			$Timer.stop()
+			$"../AudioStreamPlayer".stop()
+			isPlaying = false
+		
+
+func _on_timer_timeout() -> void:
+	Countdown -= 1
+	$Empty/Camera3D/PC/Label2.text = str(Countdown)
+	
+	if Countdown == 0 :
+		$Timer.stop()
+		$"../AudioStreamPlayer".stop()
+		isPlaying = false
+		

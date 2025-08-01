@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://5rewm3bkjsqw"]
+[gd_scene load_steps=23 format=3 uid="uid://5rewm3bkjsqw"]
 
 [ext_resource type="PackedScene" uid="uid://bwekj16gfrvex" path="res://tomato.tscn" id="1_03owx"]
 [ext_resource type="PackedScene" uid="uid://objro2a1jxxq" path="res://eggplant.tscn" id="1_20pc6"]
@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://but4hlcfrmcx4" path="res://onion.tscn" id="3_lgr22"]
 [ext_resource type="PackedScene" uid="uid://b0wfwjdrsq03i" path="res://knife.tscn" id="7_trn2v"]
 [ext_resource type="PackedScene" uid="uid://djw7asxosnrkc" path="res://cabbage.tscn" id="8_20pc6"]
-[ext_resource type="Script" uid="uid://d0qqdakodxmt8" path="res://knife.gd" id="11_5vvyt"]
-[ext_resource type="PackedScene" uid="uid://dxfpjnjvkywm5" path="res://slice.tscn" id="11_c6i3y"]
-[ext_resource type="PackedScene" uid="uid://bb3qhcs4yrm0w" path="res://greenSlice.tscn" id="12_c2ibq"]
 [ext_resource type="AudioStream" uid="uid://cpmrtu48knoaf" path="res://arpeggiatura - science behind it.mp3" id="13_c6i3y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rxg2q"]
@@ -192,12 +189,9 @@ multiplier = 12.915
 [node name="knife" parent="." instance=ExtResource("7_trn2v")]
 transform = Transform3D(0.936295, -0.0925077, -0.338812, 0.0944495, 0.995471, -0.0107912, 0.338276, -0.0218969, 0.940792, -20.0956, 3.71519, 9.09665)
 collision_layer = 2
-script = ExtResource("11_5vvyt")
+SPEED = 15.0
+JUMP_VELOCITY = 12.0
 ROTATE_SPEED = 2
-vegetable = {
-"broccoli": ExtResource("12_c2ibq"),
-"tomato": ExtResource("11_c6i3y")
-}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_c6i3y")

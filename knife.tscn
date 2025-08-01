@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://b0wfwjdrsq03i"]
+[gd_scene load_steps=16 format=4 uid="uid://b0wfwjdrsq03i"]
 
-[ext_resource type="Script" uid="uid://c00p0dtwvxmc7" path="res://ginger.gd" id="1_mawn3"]
+[ext_resource type="Script" uid="uid://d0qqdakodxmt8" path="res://knife.gd" id="1_8wt88"]
 [ext_resource type="Script" uid="uid://c381vrklidvus" path="res://blade.gd" id="2_8wt88"]
+[ext_resource type="AudioStream" uid="uid://cd0j2l3u884wx" path="res://soundslice.wav" id="3_s4gn3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pq484"]
 resource_name = "Material"
@@ -219,8 +220,7 @@ radius = 3.0
 
 [node name="knife" type="CharacterBody3D"]
 collision_mask = 7
-script = ExtResource("1_mawn3")
-SPEED = 10.0
+script = ExtResource("1_8wt88")
 
 [node name="Empty" type="Node3D" parent="."]
 
@@ -304,6 +304,33 @@ offset_right = 41.0
 offset_bottom = 99.0
 theme_override_font_sizes/font_size = 72
 text = "0"
+
+[node name="PC" type="PanelContainer" parent="Empty/Camera3D"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Label2" type="Label" parent="Empty/Camera3D/PC"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+
+[node name="You Win" type="PanelContainer" parent="Empty/Camera3D"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Empty/Camera3D/You Win"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="legs" type="Node3D" parent="Empty"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.70329, -0.527983, 0)
@@ -455,3 +482,13 @@ settings/0/exclude_collision_count = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.99999, 1.80211e-07, 0, -6.37025e-07, 0.999993, 3.72529e-09, 3.15905e-06, -3.70666e-07, 1, -0.200003, -0.979259, 0.0723739)
 shape = SubResource("SphereShape3D_cm0pq")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="SliceSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s4gn3")
+pitch_scale = 0.39
+max_polyphony = 4
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
