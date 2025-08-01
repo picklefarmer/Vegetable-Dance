@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY = 14.5
 @export var ROTATE_SPEED = 25
 @export var Countdown = 100
+@export var winAmount = 200
 var isPlaying = true
 @export var vegetable = {
 	"tomato": preload("res://slice.tscn"),
@@ -15,11 +16,16 @@ var isPlaying = true
 var knifeCollider
 #@onready var tomato = preload("res://slice.tscn")
 var rotationalAmount = 0
-func dealBoss():
-	pass
+func vegetableDone():
+	$Empty/Camera3D/Display.visible = true
+	await get_tree().create_timer(1).timeout
+	$Empty/Camera3D/Display.visible = false
+	
 func _ready() -> void:
 	knifeCollider = $Empty/Armature/Skeleton3D/Cube/KnifeBlade3d
 	Action.pushSlice.connect(throw) 
+	Action.complete.connect(vegetableDone)
+	
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -82,7 +88,7 @@ func throw(veggie):
 	if isPlaying:
 		var score = int($Empty/Camera3D/Label.text) + 5
 		$Empty/Camera3D/Label.text = "Score: "+str(score)
-		if score >= 150:
+		if score >= winAmount:
 			$"Empty/Camera3D/You Win".visible = true
 			$Timer.stop()
 			$"../AudioStreamPlayer".stop()

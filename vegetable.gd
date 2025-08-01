@@ -6,7 +6,8 @@ var isDancing = true
 @export var amount = 10	
 @export var hop = 10
 @export var type = "tomato"
-
+@export var jump = 23
+var enabled = false
 
 @onready var audio_stream_player : AudioStreamPlayer = $"../AudioStreamPlayer"
 
@@ -29,7 +30,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 
-	if spectrum_analyzer:
+	if spectrum_analyzer and enabled:
 		var volume_mag = spectrum_analyzer.get_magnitude_for_frequency_range(350.0,3000.0,AudioEffectSpectrumAnalyzerInstance.MAGNITUDE_AVERAGE).length()
 		volume_mag = clamp((MIN_DB + linear_to_db(volume_mag))/MIN_DB,0,1)
 		#print(volume_mag, "volume")
@@ -61,10 +62,12 @@ func _on_body_entered(body: Node) -> void:
 	
 			look_at(knifeLoc,Vector3.UP)
 			rotate(Vector3.UP,PI)
-		
-			linear_velocity += Vector3.FORWARD*10
 			
+			#linear_velocity += Vector3.FORWARD*10
+			linear_velocity = global_transform.basis * Vector3(0,0,-jump) 
+			#apply_central_force(-global_transform.basis.z*50)
 		else:
+			Action.complete.emit()
 			queue_free()
 		
 

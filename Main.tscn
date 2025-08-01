@@ -136,14 +136,12 @@ multiplier = 18.16
 
 [node name="mushroom" parent="." instance=ExtResource("1_wkp8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5158, 0, -0.376783)
-gravity_scale = 4.0
 MIN_DB = 71
 minimum = 0.025
 multiplier = 15.0
 
 [node name="pepper" parent="." instance=ExtResource("2_wkp8b")]
 transform = Transform3D(0.917171, 0, -0.398493, 0, 1, 0, 0.398493, 0, 0.917171, 2.82417, 2.38419e-07, -3.00758)
-gravity_scale = 4.0
 type = "broccoli"
 MIN_DB = 73
 minimum = 0.125
@@ -167,7 +165,6 @@ multiplier = 17.17
 
 [node name="onion" parent="." instance=ExtResource("3_lgr22")]
 transform = Transform3D(0.908996, 0, -0.416804, 0, 1, 0, 0.416804, 0, 0.908996, 24.5162, 0.564153, 8.71623)
-gravity_scale = 4.0
 amount = 12
 hop = 2
 MIN_DB = 80
@@ -175,6 +172,7 @@ multiplier = 16.445
 
 [node name="potato" parent="." instance=ExtResource("3_fos0i")]
 transform = Transform3D(-0.215399, 0.0378472, -0.975793, 0.00815805, 0.999284, 0.0369575, 0.976492, 4.00469e-08, -0.215554, 3.31202, 0.910585, 9.11359)
+gravity_scale = 1.0
 hop = 0
 MIN_DB = 83
 

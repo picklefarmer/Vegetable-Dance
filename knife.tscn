@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://b0wfwjdrsq03i"]
+[gd_scene load_steps=17 format=4 uid="uid://b0wfwjdrsq03i"]
 
 [ext_resource type="Script" uid="uid://d0qqdakodxmt8" path="res://knife.gd" id="1_8wt88"]
 [ext_resource type="Script" uid="uid://c381vrklidvus" path="res://blade.gd" id="2_8wt88"]
-[ext_resource type="AudioStream" uid="uid://cd0j2l3u884wx" path="res://soundslice.wav" id="3_s4gn3"]
+[ext_resource type="AudioStream" uid="uid://8jk35n075a6f" path="res://soundslice 2.wav" id="3_s4gn3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pq484"]
 resource_name = "Material"
@@ -106,6 +106,9 @@ shadow_mesh = SubResource("ArrayMesh_ipigm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3dxm6"]
 size = Vector3(7.43115, 2.10965, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4gn3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ge6iq"]
 resource_name = "Material"
@@ -332,6 +335,23 @@ text = "You Win!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Display" type="PanelContainer" parent="Empty/Camera3D"]
+visible = false
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s4gn3")
+
+[node name="Label" type="Label" parent="Empty/Camera3D/Display"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "Collected"
+horizontal_alignment = 1
+
 [node name="legs" type="Node3D" parent="Empty"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.70329, -0.527983, 0)
 
@@ -488,7 +508,6 @@ autostart = true
 
 [node name="SliceSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_s4gn3")
-pitch_scale = 0.39
 max_polyphony = 4
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
