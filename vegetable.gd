@@ -8,7 +8,7 @@ var isDancing = true
 @export var type = "tomato"
 @export var jump = 23
 var enabled = false
-
+#var vegetableObject = preload("res://broccoli.tscn")
 @onready var audio_stream_player : AudioStreamPlayer = $"../AudioStreamPlayer"
 
 var record_bus_index : int
@@ -55,7 +55,8 @@ func _on_body_entered(body: Node) -> void:
 		isDancing = false
 		if scale.y > .25:
 			scale -= Vector3.ONE/6
-			var Knife = $"../knife"
+			var Knife = body
+			
 			var knifeLoc = Knife.position
 			
 			Action.pushSlice.emit(type)
@@ -66,11 +67,29 @@ func _on_body_entered(body: Node) -> void:
 			#linear_velocity += Vector3.FORWARD*10
 			linear_velocity = global_transform.basis * Vector3(0,0,-jump) 
 			#apply_central_force(-global_transform.basis.z*50)
+			
+			duplicateVeggie(scale.y)
 		else:
 			Action.complete.emit()
 			queue_free()
 		
-
+func duplicateVeggie(veggieScale):
+	var veggie = duplicate()
+#
+	var start = position
+	#var forward : Vector3 = -global_transform.basis.z
+	#var forward : Vector3 = -$Empty.basis.x
+	#start.y = position.y + 3
+	#veggie.position = start
+	veggie.scale = Vector3.ONE* veggieScale
+	##$SliceSound.play()
+	#
+	get_tree().root.add_child(veggie)
+	#
+	#
+	
+	
+	
 func _on_timer_timeout() -> void:
 	if isDancing:
 		if isFacing:

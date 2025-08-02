@@ -1,0 +1,199 @@
+[gd_scene load_steps=23 format=3 uid="uid://5rewm3bkjsqw"]
+
+[ext_resource type="PackedScene" uid="uid://bwekj16gfrvex" path="res://tomato.tscn" id="1_03owx"]
+[ext_resource type="PackedScene" uid="uid://objro2a1jxxq" path="res://eggplant.tscn" id="1_20pc6"]
+[ext_resource type="PackedScene" uid="uid://x8ta44hfq4dl" path="res://mushroom.tscn" id="1_wkp8b"]
+[ext_resource type="PackedScene" uid="uid://cw1voauo54nxs" path="res://pepper.tscn" id="2_wkp8b"]
+[ext_resource type="PackedScene" uid="uid://bmlaor4gmq8o2" path="res://broccoli.tscn" id="3_03owx"]
+[ext_resource type="PackedScene" uid="uid://b15jmaf4sgd38" path="res://potato.tscn" id="3_fos0i"]
+[ext_resource type="PackedScene" uid="uid://but4hlcfrmcx4" path="res://onion.tscn" id="3_lgr22"]
+[ext_resource type="PackedScene" uid="uid://b0wfwjdrsq03i" path="res://knife.tscn" id="7_trn2v"]
+[ext_resource type="PackedScene" uid="uid://djw7asxosnrkc" path="res://cabbage.tscn" id="8_20pc6"]
+[ext_resource type="AudioStream" uid="uid://cpmrtu48knoaf" path="res://arpeggiatura - science behind it.mp3" id="13_c6i3y"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rxg2q"]
+sky_top_color = Color(0.12659, 0.209233, 0.534692, 1)
+sky_horizon_color = Color(0.423446, 0.716227, 0.838349, 1)
+ground_bottom_color = Color(0.402753, 0.183133, 0, 1)
+ground_horizon_color = Color(0.995709, 0.696134, 0.533976, 1)
+ground_curve = 0.0136604
+
+[sub_resource type="Sky" id="Sky_glv2v"]
+sky_material = SubResource("ProceduralSkyMaterial_rxg2q")
+radiance_size = 4
+
+[sub_resource type="Environment" id="Environment_uu6xs"]
+background_mode = 2
+background_energy_multiplier = 0.87
+sky = SubResource("Sky_glv2v")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_glv2v"]
+size = Vector3(84.7175, 1, 44.2442)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cm0pq"]
+size = Vector3(82.5844, 14.973, 1.01611)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_03owx"]
+size = Vector3(1, 15.2051, 43.9183)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rxg2q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glv2v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03owx"]
+transparency = 1
+blend_mode = 3
+
+[sub_resource type="BoxMesh" id="BoxMesh_03owx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkp8b"]
+transparency = 1
+blend_mode = 3
+depth_draw_mode = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20pc6"]
+transparency = 1
+blend_mode = 3
+depth_draw_mode = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uu6xs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+metadata/_edit_group_ = true
+
+[node name="Base" type="Node" parent="."]
+
+[node name="floor" type="StaticBody3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base/floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0448818, 0, -0.0903893)
+shape = SubResource("BoxShape3D_glv2v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Base/floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0448818, 12.3584, -0.0903893)
+shape = SubResource("BoxShape3D_glv2v")
+
+[node name="wall" type="StaticBody3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334954, 4.96165, -21.4789)
+shape = SubResource("BoxShape3D_cm0pq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Base/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334954, 6.39702, 21.5074)
+shape = SubResource("BoxShape3D_cm0pq")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Base/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.865, 5.39335, 0.0289917)
+shape = SubResource("BoxShape3D_03owx")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Base/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.8631, 6.19815, 0.0289917)
+shape = SubResource("BoxShape3D_03owx")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Base"]
+transform = Transform3D(82.725, 0, 0, 0, 1, 0, 0, 0, 42, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_rxg2q")
+material = SubResource("StandardMaterial3D_glv2v")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Base"]
+transform = Transform3D(82.165, 0, 0, 0, -4.37114e-08, -10, 0, 1, -4.37114e-07, 0.0755954, 4.01614, 21.4402)
+mesh = SubResource("BoxMesh_rxg2q")
+material = SubResource("StandardMaterial3D_03owx")
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="Base"]
+transform = Transform3D(82.165, 0, 0, 0, -4.37114e-08, -10, 0, 1, -4.37114e-07, 0.0400958, 4.01614, -21.541)
+mesh = SubResource("BoxMesh_rxg2q")
+material = SubResource("StandardMaterial3D_03owx")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Base"]
+transform = Transform3D(-1.90385e-06, 1, -4.37114e-07, 0, -4.37114e-08, -10, -43.555, -4.37114e-08, 1.91069e-14, 41.8687, 4.01614, 0.000404358)
+mesh = SubResource("BoxMesh_03owx")
+material = SubResource("StandardMaterial3D_wkp8b")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="Base"]
+transform = Transform3D(-1.90385e-06, 1, -4.37114e-07, 0, -4.37114e-08, -10, -43.555, -4.37114e-08, 1.91069e-14, -41.9251, 3.97965, 0.0143032)
+mesh = SubResource("BoxMesh_03owx")
+material = SubResource("StandardMaterial3D_20pc6")
+
+[node name="eggplant" parent="." instance=ExtResource("1_20pc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115818, 0, 0.124856)
+gravity_scale = 4.0
+hop = 0
+type = "broccoli"
+MIN_DB = 73
+multiplier = 18.16
+
+[node name="mushroom" parent="." instance=ExtResource("1_wkp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5158, 0, -0.376783)
+MIN_DB = 71
+minimum = 0.025
+multiplier = 15.0
+
+[node name="pepper" parent="." instance=ExtResource("2_wkp8b")]
+transform = Transform3D(0.917171, 0, -0.398493, 0, 1, 0, 0.398493, 0, 0.917171, 2.82417, 2.38419e-07, -3.00758)
+type = "broccoli"
+MIN_DB = 73
+minimum = 0.125
+multiplier = 14.0
+
+[node name="tomato" parent="." instance=ExtResource("1_03owx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1935, 0, 7.63351)
+collision_layer = 4
+collision_mask = 7
+gravity_scale = 4.0
+hop = 0
+MIN_DB = 79
+multiplier = 16.0
+
+[node name="broccoli" parent="." instance=ExtResource("3_03owx")]
+transform = Transform3D(0.386707, 0.0467229, 0.921018, -0.0180878, 0.998908, -0.0430797, -0.922025, 2.04891e-08, 0.38713, 0.962061, -0.0867767, -13.1243)
+amount = 24
+type = "broccoli"
+MIN_DB = 73
+multiplier = 17.17
+
+[node name="onion" parent="." instance=ExtResource("3_lgr22")]
+transform = Transform3D(0.908996, 0, -0.416804, 0, 1, 0, 0.416804, 0, 0.908996, 24.5162, 0.564153, 8.71623)
+amount = 12
+hop = 2
+MIN_DB = 80
+multiplier = 16.445
+
+[node name="potato" parent="." instance=ExtResource("3_fos0i")]
+transform = Transform3D(-0.215399, 0.0378472, -0.975793, 0.00815805, 0.999284, 0.0369575, 0.976492, 4.00469e-08, -0.215554, 3.31202, 0.910585, 9.11359)
+gravity_scale = 1.0
+hop = 0
+MIN_DB = 83
+
+[node name="cabbage" parent="." instance=ExtResource("8_20pc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.14594, 0.0268905, -3.32707)
+gravity_scale = 4.0
+hop = 0
+MIN_DB = 72
+minimum = 0.025
+multiplier = 12.915
+
+[node name="knife" parent="." instance=ExtResource("7_trn2v")]
+transform = Transform3D(0.936295, -0.0925077, -0.338812, 0.0944495, 0.995471, -0.0107912, 0.338276, -0.0218969, 0.940792, -20.0956, 3.71519, 9.09665)
+collision_layer = 2
+SPEED = 15.0
+JUMP_VELOCITY = 12.0
+ROTATE_SPEED = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_c6i3y")
+volume_db = -12.0
+pitch_scale = 0.75
+autoplay = true
+bus = &"recording"

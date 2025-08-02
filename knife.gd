@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY = 14.5
 @export var ROTATE_SPEED = 25
 @export var Countdown = 100
-@export var winAmount = 200
+@export var winAmount = 1200
 var isPlaying = true
 @export var vegetable = {
 	"tomato": preload("res://slice.tscn"),
