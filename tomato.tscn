@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bwekj16gfrvex"]
+[gd_scene load_steps=10 format=4 uid="uid://bwekj16gfrvex"]
 
 [ext_resource type="Script" uid="uid://b8uvjx1c58reb" path="res://tomato.gd" id="1_ajaoc"]
 
@@ -137,8 +137,9 @@ _data = {
 &"dance loop": SubResource("Animation_hn475")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7hefh"]
-size = Vector3(2.72449, 1.54285, 2.29248)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajaoc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_joa5w"]
 
 [node name="tomato" type="RigidBody3D"]
 contact_monitor = true
@@ -202,12 +203,17 @@ libraries = {
 }
 autoplay = "dance loop"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25885, 0.787752, -0.00366211)
-shape = SubResource("BoxShape3D_7hefh")
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="box" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.28912, 1.00225, 0)
+visible = false
+shape = SubResource("BoxShape3D_ajaoc")
+
+[node name="sphere" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.28912, 1.00225, 0)
+shape = SubResource("SphereShape3D_joa5w")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

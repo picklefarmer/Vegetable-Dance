@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cw1voauo54nxs"]
+[gd_scene load_steps=10 format=4 uid="uid://cw1voauo54nxs"]
 
 [ext_resource type="Script" uid="uid://bxgbotr3megyo" path="res://pepper.gd" id="1_40fv4"]
 
@@ -151,6 +151,8 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_40fv4"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_afx3k"]
+
 [node name="pepper" type="RigidBody3D"]
 contact_monitor = true
 max_contacts_reported = 2
@@ -223,12 +225,17 @@ libraries = {
 }
 autoplay = "dance loop"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 14.3107, 1.0975, -2.84933)
-shape = SubResource("BoxShape3D_40fv4")
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="box" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 14.285, 1.25205, -2.85082)
+visible = false
+shape = SubResource("BoxShape3D_40fv4")
+
+[node name="sphere" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 14.285, 1.25205, -2.85082)
+shape = SubResource("SphereShape3D_afx3k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

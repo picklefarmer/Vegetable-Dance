@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtj3f3b645gwy"]
+[gd_scene load_steps=17 format=3 uid="uid://dtj3f3b645gwy"]
 
 [ext_resource type="PackedScene" uid="uid://backhhp6sph1" path="res://Models/resources/level 2.blend" id="1_x2u3o"]
 [ext_resource type="ArrayMesh" uid="uid://cm8r4ldy3d54u" path="res://Models/resources/level 2.obj" id="2_aky0p"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bmlaor4gmq8o2" path="res://broccoli.tscn" id="9_bi3nv"]
 [ext_resource type="AudioStream" uid="uid://sav2cgd4ficx" path="res://arpeggiatura - awake for that.mp3" id="10_p24lo"]
 [ext_resource type="PackedScene" uid="uid://bwekj16gfrvex" path="res://tomato.tscn" id="11_3iti4"]
+[ext_resource type="PackedScene" uid="uid://djw7asxosnrkc" path="res://cabbage.tscn" id="11_6khxn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x2u3o"]
 sky_top_color = Color(0.170506, 0.449418, 0.775249, 1)
@@ -84,6 +85,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7463, 4.09684, 53.7067)
 [node name="tomato" parent="." instance=ExtResource("11_3iti4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.487, 22.7281, 3.01229)
 hop = 0
+
+[node name="cabbage" parent="." instance=ExtResource("11_6khxn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2157, 8.70812, 9.42299)
+hop = 7
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_p24lo")

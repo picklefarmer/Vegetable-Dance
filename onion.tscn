@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://but4hlcfrmcx4"]
+[gd_scene load_steps=9 format=4 uid="uid://but4hlcfrmcx4"]
 
 [ext_resource type="Script" uid="uid://bit7o7oarapn8" path="res://onion.gd" id="1_llx7t"]
 
@@ -130,8 +130,9 @@ _data = {
 &"dance loop": SubResource("Animation_uxwxw")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_iygtb"]
-size = Vector3(2.55887, 1.95361, 2.62027)
+[sub_resource type="BoxShape3D" id="BoxShape3D_llx7t"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_llx7t"]
 
 [node name="onion" type="RigidBody3D"]
 collision_layer = 4
@@ -213,9 +214,14 @@ libraries = {
 }
 autoplay = "dance loop"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.00001, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1.00001, -0.00392152, 1, 0.0069735)
-shape = SubResource("BoxShape3D_iygtb")
+[node name="box" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.999142, 0)
+visible = false
+shape = SubResource("BoxShape3D_llx7t")
+
+[node name="sphere" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.999142, 0)
+shape = SubResource("SphereShape3D_llx7t")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

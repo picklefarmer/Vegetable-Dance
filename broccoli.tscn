@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bmlaor4gmq8o2"]
+[gd_scene load_steps=9 format=4 uid="uid://bmlaor4gmq8o2"]
 
 [ext_resource type="Script" uid="uid://pl8l76rvgbp1" path="res://broccoli.gd" id="1_vrekp"]
 
@@ -98,7 +98,9 @@ bind/12/pose = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 0, -7
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uu6xs"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrekp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mhkwh"]
 
 [node name="broccoli" type="RigidBody3D"]
 collision_layer = 4
@@ -236,9 +238,14 @@ settings/0/gravity/direction = Vector3(0, -1, 0)
 settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(8.1, 0, 0, 0, 8.1, 0, 0, 0, 8.1, -0.0443115, 4.50708, -0.105534)
-shape = SubResource("BoxShape3D_uu6xs")
+[node name="box" type="CollisionShape3D" parent="."]
+transform = Transform3D(8.5, 0, 0, 0, 8.5, 0, 0, 0, 8.5, 0, 4.27896, 0)
+visible = false
+shape = SubResource("BoxShape3D_vrekp")
+
+[node name="sphere" type="CollisionShape3D" parent="."]
+transform = Transform3D(8.5, 0, 0, 0, 8.5, 0, 0, 0, 8.5, 0, 4.27896, 0)
+shape = SubResource("SphereShape3D_mhkwh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

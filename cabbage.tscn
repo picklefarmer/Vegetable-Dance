@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://djw7asxosnrkc"]
+[gd_scene load_steps=9 format=4 uid="uid://djw7asxosnrkc"]
 
 [ext_resource type="Script" uid="uid://xqw4uf0a34kg" path="res://cabbage.gd" id="1_iuhr8"]
 
@@ -129,6 +129,9 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3q4xe"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_iuhr8"]
+radius = 0.591019
+
 [node name="cabbage" type="RigidBody3D"]
 contact_monitor = true
 max_contacts_reported = 2
@@ -197,9 +200,14 @@ libraries = {
 }
 autoplay = "dance loop"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="box" type="CollisionShape3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.872, 0)
+visible = false
 shape = SubResource("BoxShape3D_3q4xe")
+
+[node name="sphere" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.397077, 2.52966, -0.248173)
+shape = SubResource("SphereShape3D_iuhr8")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

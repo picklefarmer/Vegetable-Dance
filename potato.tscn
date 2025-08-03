@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://b15jmaf4sgd38"]
+[gd_scene load_steps=9 format=4 uid="uid://b15jmaf4sgd38"]
 
 [ext_resource type="Script" uid="uid://bycp0ff423j71" path="res://potato.gd" id="1_5wy20"]
 
@@ -80,8 +80,10 @@ bind/6/pose = Transform3D(1, 0, -2.38419e-07, -2.84217e-14, 1, -1.19209e-07, 2.3
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.258176, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r0du0"]
-size = Vector3(1, 1.37061, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wy20"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rx63k"]
+radius = 0.591843
 
 [node name="potato" type="RigidBody3D"]
 collision_layer = 4
@@ -174,9 +176,14 @@ settings/0/gravity/direction = Vector3(0, -1, 0)
 settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(4.43, -8.00424e-08, 3.03984e-06, -2.07297e-07, 4.43, 1.98854e-07, -1.19209e-07, -3.54761e-07, 4.43, 0, 2.90808, 0)
-shape = SubResource("BoxShape3D_r0du0")
+[node name="box" type="CollisionShape3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2.01371, 0)
+visible = false
+shape = SubResource("BoxShape3D_5wy20")
+
+[node name="sphere" type="CollisionShape3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2.30306, 0)
+shape = SubResource("SphereShape3D_rx63k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

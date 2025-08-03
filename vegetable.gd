@@ -8,6 +8,7 @@ var isDancing = true
 @export var type = "tomato"
 @export var jump = 23
 var enabled = false
+var isbuffer = false
 #var vegetableObject = preload("res://broccoli.tscn")
 @onready var audio_stream_player : AudioStreamPlayer = $"../AudioStreamPlayer"
 
@@ -52,26 +53,34 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	
 	if body is Blade:
-		isDancing = false
-		if scale.y > .25:
-			scale -= Vector3.ONE/6
-			var Knife = body
-			
-			var knifeLoc = Knife.position
-			
-			Action.pushSlice.emit(type)
-	
-			look_at(knifeLoc,Vector3.UP)
-			rotate(Vector3.UP,PI)
-			
-			#linear_velocity += Vector3.FORWARD*10
-			linear_velocity = global_transform.basis * Vector3(0,0,-jump) 
-			#apply_central_force(-global_transform.basis.z*50)
-			
-			duplicateVeggie(scale.y)
+		if Global.buffer:
+			pass
 		else:
-			Action.complete.emit()
-			queue_free()
+			isDancing = false
+			Global.buffer = true
+			if scale.y > .25:
+				scale -= Vector3.ONE/6
+				var Knife = body
+			
+				var knifeLoc = Knife.position
+			
+				Action.pushSlice.emit(type)
+	
+				look_at(knifeLoc,Vector3.UP)
+				rotate(Vector3.UP,PI)
+			
+				#linear_velocity += Vector3.FORWARD*10
+				linear_velocity = global_transform.basis * Vector3(0,0,-jump) 
+				#apply_central_force(-global_transform.basis.z*50)
+			
+				duplicateVeggie(scale.y)
+				await get_tree().create_timer(0.125).timeout
+				Global.buffer = false
+			else:
+				Action.complete.emit()
+				queue_free()
+				
+			
 		
 func duplicateVeggie(veggieScale):
 	var veggie = duplicate()

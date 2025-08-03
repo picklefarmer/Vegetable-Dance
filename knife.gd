@@ -17,6 +17,7 @@ var knifeCollider
 #@onready var tomato = preload("res://slice.tscn")
 var rotationalAmount = 0
 func vegetableDone():
+	Global.buffer = false
 	$Empty/Camera3D/Display.visible = true
 	await get_tree().create_timer(1).timeout
 	$Empty/Camera3D/Display.visible = false
