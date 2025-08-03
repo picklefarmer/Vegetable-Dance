@@ -110,17 +110,19 @@ func _on_timer_timeout() -> void:
 		#isPlaying = false
 		#var node = preload("res://Level 2.tscn")
 		Global.score = int($Empty/Camera3D/Label.text)
-		Global.levelCount += 1
-		if Global.levelCount == 1:
-			#var tree = get_tree()
-			#var cur_scene = tree.get_current_scene()
-			#tree.get_root().add_child(node)
-			#tree.get_root().remove_child(cur_scene)
-			#tree.set_current_scene(node)
+		
+		match Global.levelCount:
+			0: 
+				get_tree().change_scene_to_file("res://Level 2.tscn")
+				Global.levelCount += 1
+			1:
+				get_tree().change_scene_to_file("res://level 3.tscn")
+				Global.levelCount += 1
+			2:
+				get_tree().change_scene_to_file("res://Main.tscn")
+				Global.levelCount = 0
+		
 			
-			get_tree().change_scene_to_file("res://Level 2.tscn")
-		else:
-			Global.levelCount = 0
-			get_tree().change_scene_to_file("res://Main.tscn")
+		
 		
 		

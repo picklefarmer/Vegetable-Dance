@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj48liraku4h4"
+path="res://.godot/imported/arpeggiatura - warp field activated.mp3-a38e529ddda92e991f2eb0add790ff8a.mp3str"
+
+[deps]
+
+source_file="res://arpeggiatura - warp field activated.mp3"
+dest_files=["res://.godot/imported/arpeggiatura - warp field activated.mp3-a38e529ddda92e991f2eb0add790ff8a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
