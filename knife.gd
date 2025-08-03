@@ -79,19 +79,23 @@ func throw(veggie):
 	thrown.position = start
 	
 	$SliceSound.play()
-	
-	get_tree().root.add_child(thrown)
+	$'../'.add_child(thrown)
+	#get_tree().root.add_child(thrown)
 	thrown.scale = Vector3.ONE * randf_range(1,0)
 	#print(forward*50, "thrown")
 	thrown.apply_impulse(forward * 20.0)
 
 	if isPlaying:
-		var score = int($Empty/Camera3D/Label.text) + 5
+		var loadScore = 0 
+		if Global.score:
+			loadScore = Global.score
+			Global.score = 0
+		var score = int($Empty/Camera3D/Label.text) + 5 + loadScore
 		$Empty/Camera3D/Label.text = "Score: "+str(score)
-		if score >= winAmount:
+		if score >= winAmount and false:
 			$"Empty/Camera3D/You Win".visible = true
 			$Timer.stop()
-			$"../AudioStreamPlayer".stop()
+			#$"../AudioStreamPlayer".stop()
 			isPlaying = false
 		
 
@@ -100,7 +104,22 @@ func _on_timer_timeout() -> void:
 	$Empty/Camera3D/PC/Label2.text = str(Countdown)
 	
 	if Countdown == 0 :
-		$Timer.stop()
-		$"../AudioStreamPlayer".stop()
-		isPlaying = false
+		#$Timer.stop()
+		#$"../AudioStreamPlayer".stop()
+		#isPlaying = false
+		#var node = preload("res://Level 2.tscn")
+		Global.score = int($Empty/Camera3D/Label.text)
+		Global.levelCount += 1
+		if Global.levelCount == 1:
+			#var tree = get_tree()
+			#var cur_scene = tree.get_current_scene()
+			#tree.get_root().add_child(node)
+			#tree.get_root().remove_child(cur_scene)
+			#tree.set_current_scene(node)
+			
+			get_tree().change_scene_to_file("res://Level 2.tscn")
+		else:
+			Global.levelCount = 0
+			get_tree().change_scene_to_file("res://Main.tscn")
+		
 		

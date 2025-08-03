@@ -4,4 +4,5 @@ extends Node
 
 
 
-var something = "F"
+var levelCount = 0
+var score = 0

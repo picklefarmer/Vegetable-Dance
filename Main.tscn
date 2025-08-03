@@ -57,7 +57,7 @@ transparency = 1
 blend_mode = 3
 depth_draw_mode = 1
 
-[node name="Node3D" type="Node3D"]
+[node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uu6xs")
@@ -128,7 +128,6 @@ material = SubResource("StandardMaterial3D_20pc6")
 
 [node name="eggplant" parent="." instance=ExtResource("1_20pc6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115818, 0, 0.124856)
-gravity_scale = 4.0
 hop = 0
 type = "broccoli"
 MIN_DB = 73
@@ -178,7 +177,6 @@ MIN_DB = 83
 
 [node name="cabbage" parent="." instance=ExtResource("8_20pc6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.14594, 0.0268905, -3.32707)
-gravity_scale = 4.0
 hop = 0
 MIN_DB = 72
 minimum = 0.025
@@ -190,6 +188,8 @@ collision_layer = 2
 SPEED = 15.0
 JUMP_VELOCITY = 12.0
 ROTATE_SPEED = 2
+Countdown = 50
+winAmount = 1000
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_c6i3y")

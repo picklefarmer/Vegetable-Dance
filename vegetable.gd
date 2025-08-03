@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	if spectrum_analyzer and enabled:
 		var volume_mag = spectrum_analyzer.get_magnitude_for_frequency_range(350.0,3000.0,AudioEffectSpectrumAnalyzerInstance.MAGNITUDE_AVERAGE).length()
 		volume_mag = clamp((MIN_DB + linear_to_db(volume_mag))/MIN_DB,0,1)
-		#print(volume_mag, "volume")
+		print(volume_mag, "volume")
 		#print( volume_mag)
 		if volume_mag > minimum:
 			#print(volume_mag,"Volume")
@@ -84,7 +84,8 @@ func duplicateVeggie(veggieScale):
 	veggie.scale = Vector3.ONE* veggieScale
 	##$SliceSound.play()
 	#
-	get_tree().root.add_child(veggie)
+	get_tree().root.get_node("Main").add_child(veggie)
+	#get_tree().root.add_child(veggie)
 	#
 	#
 	
