@@ -119,6 +119,9 @@ func _on_timer_timeout() -> void:
 				get_tree().change_scene_to_file("res://level 3.tscn")
 				Global.levelCount += 1
 			2:
+				get_tree().change_scene_to_file("res://level 4.tscn")
+				Global.levelCount += 1
+			3:
 				get_tree().change_scene_to_file("res://Main.tscn")
 				Global.levelCount = 0
 		
