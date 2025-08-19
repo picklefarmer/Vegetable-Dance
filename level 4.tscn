@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7bqbwss7blmi"]
+[gd_scene load_steps=17 format=3 uid="uid://c7bqbwss7blmi"]
 
 [ext_resource type="ArrayMesh" uid="uid://cmx2inchiktk3" path="res://Models/resources/level 4.obj" id="1_5jewv"]
 [ext_resource type="Script" uid="uid://b0wbggnb7uxux" path="res://main.gd" id="1_ous1n"]
 [ext_resource type="PackedScene" uid="uid://b0wfwjdrsq03i" path="res://knife.tscn" id="2_njxle"]
+[ext_resource type="PackedScene" uid="uid://n3rbgl3eenm3" path="res://Models/resources/level 4.blend" id="3_agfg6"]
 [ext_resource type="PackedScene" uid="uid://bwekj16gfrvex" path="res://tomato.tscn" id="3_o6k6o"]
 [ext_resource type="PackedScene" uid="uid://cw1voauo54nxs" path="res://pepper.tscn" id="4_minox"]
 [ext_resource type="PackedScene" uid="uid://b15jmaf4sgd38" path="res://potato.tscn" id="5_b4e4n"]
@@ -44,11 +45,14 @@ shadow_enabled = true
 collision_mask = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+visible = false
 mesh = ExtResource("1_5jewv")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_njxle")
+
+[node name="level 4" parent="StaticBody3D" instance=ExtResource("3_agfg6")]
 
 [node name="knife" parent="." instance=ExtResource("2_njxle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7952, 13.9521, -43.6834)
@@ -78,7 +82,7 @@ hop = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.166, 202.044, 80.7443)
 
 [node name="broccoli" parent="." instance=ExtResource("9_howrg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.5616, 218.006, -7.52536)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.0519, 217.93, -15.2116)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_qbcns")

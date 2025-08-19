@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://p4t11774dvcy"]
+[gd_scene load_steps=18 format=3 uid="uid://p4t11774dvcy"]
 
 [ext_resource type="ArrayMesh" uid="uid://dhcodcjpv6ohq" path="res://Models/resources/level 3.obj" id="1_v4reb"]
 [ext_resource type="Script" uid="uid://b0wbggnb7uxux" path="res://main.gd" id="1_wm8e1"]
+[ext_resource type="PackedScene" uid="uid://d0phfpnj6tqis" path="res://Models/resources/level 3.blend" id="2_bb5d8"]
 [ext_resource type="PackedScene" uid="uid://b0wfwjdrsq03i" path="res://knife.tscn" id="2_hfw7o"]
 [ext_resource type="PackedScene" uid="uid://x8ta44hfq4dl" path="res://mushroom.tscn" id="3_pcseb"]
 [ext_resource type="PackedScene" uid="uid://but4hlcfrmcx4" path="res://onion.tscn" id="4_ajpv3"]
@@ -44,7 +45,10 @@ shadow_enabled = true
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_mask = 7
 
+[node name="level 3" parent="StaticBody3D" instance=ExtResource("2_bb5d8")]
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+visible = false
 mesh = ExtResource("1_v4reb")
 skeleton = NodePath("../..")
 
