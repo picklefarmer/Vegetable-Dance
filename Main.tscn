@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://5rewm3bkjsqw"]
+[gd_scene load_steps=25 format=3 uid="uid://5rewm3bkjsqw"]
 
 [ext_resource type="PackedScene" uid="uid://bwekj16gfrvex" path="res://tomato.tscn" id="1_03owx"]
 [ext_resource type="Script" uid="uid://b0wbggnb7uxux" path="res://main.gd" id="1_5vvyt"]
 [ext_resource type="PackedScene" uid="uid://objro2a1jxxq" path="res://eggplant.tscn" id="1_20pc6"]
 [ext_resource type="PackedScene" uid="uid://x8ta44hfq4dl" path="res://mushroom.tscn" id="1_wkp8b"]
+[ext_resource type="PackedScene" uid="uid://d26kcsvdhoau6" path="res://Models/resources/level 1.blend" id="2_5vvyt"]
 [ext_resource type="PackedScene" uid="uid://cw1voauo54nxs" path="res://pepper.tscn" id="2_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://bmlaor4gmq8o2" path="res://broccoli.tscn" id="3_03owx"]
 [ext_resource type="PackedScene" uid="uid://b15jmaf4sgd38" path="res://potato.tscn" id="3_fos0i"]
@@ -75,6 +76,9 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 collision_mask = 7
 
+[node name="level 1" parent="Base/floor" instance=ExtResource("2_5vvyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5034, -0.53122, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base/floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0448818, 0, -0.0903893)
 shape = SubResource("BoxShape3D_glv2v")
@@ -105,6 +109,7 @@ shape = SubResource("BoxShape3D_03owx")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Base"]
 transform = Transform3D(82.725, 0, 0, 0, 1, 0, 0, 0, 42, 0, -0.5, 0)
+visible = false
 mesh = SubResource("BoxMesh_rxg2q")
 material = SubResource("StandardMaterial3D_glv2v")
 
