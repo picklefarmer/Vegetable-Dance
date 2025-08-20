@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba8fbh0thm4v3"
-path.s3tc="res://.godot/imported/caution.png-3029ee2f3151010dbd275fbef78da506.s3tc.ctex"
+uid="uid://ct60fy71qtsg"
+path.s3tc="res://.godot/imported/ping.png-c9983fcbc1da8b080442ff25805cce18.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://Models/resources/textures/caution.png"
-dest_files=["res://.godot/imported/caution.png-3029ee2f3151010dbd275fbef78da506.s3tc.ctex"]
+source_file="res://Models/resources/textures/ping.png"
+dest_files=["res://.godot/imported/ping.png-c9983fcbc1da8b080442ff25805cce18.s3tc.ctex"]
 
 [params]
 
